@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.template;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -32,6 +32,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.template.databinding.FragmentListBinding;
+import com.template.model.Cheeses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +41,14 @@ import java.util.Random;
 
 public class CheeseListFragment extends Fragment {
 
+    private FragmentListBinding mBinding;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.fragment_cheese_list, container, false);
-        setupRecyclerView(rv);
-        return rv;
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false);
+        setupRecyclerView(mBinding.recyclerview);
+        return mBinding.recyclerview;
     }
 
     private void setupRecyclerView(RecyclerView recyclerView) {
@@ -117,8 +120,8 @@ public class CheeseListFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, CheeseDetailActivity.class);
-                    intent.putExtra(CheeseDetailActivity.EXTRA_NAME, holder.mBoundString);
+                    Intent intent = new Intent(context, ContentDetailActivity.class);
+                    intent.putExtra(ContentDetailActivity.EXTRA_NAME, holder.mBoundString);
 
                     context.startActivity(intent);
                 }

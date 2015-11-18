@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.template.model;
+
+import com.template.R;
 
 import java.util.Random;
 
