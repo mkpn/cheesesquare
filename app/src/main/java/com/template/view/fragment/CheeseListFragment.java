@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.template;
+package com.template.view.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -32,6 +32,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.template.ContentDetailActivity;
+import com.template.R;
 import com.template.databinding.FragmentListBinding;
 import com.template.model.Cheeses;
 
