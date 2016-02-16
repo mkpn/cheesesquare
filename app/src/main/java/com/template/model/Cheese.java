@@ -3,6 +3,8 @@ package com.template.model;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import com.template.BR;
+
 /**
  * Created by makoto on 2015/11/27.
  */
@@ -21,7 +23,7 @@ public class Cheese extends BaseObservable {
     }
 
     @Bindable
-    public int getmResId() {
+    public int getResId() {
         return mResId;
     }
 
@@ -32,10 +34,12 @@ public class Cheese extends BaseObservable {
         // setterで、値が変わったことを通知する
         // BR.〇〇 は @Bindable を付けたgetterに依存している
 //        notifyPropertyChanged(jp.eno314.databindingdemo.BR.firstName);
+        notifyPropertyChanged(BR.firstName);
     }
 
     public void setResId(int resId) {
          mResId = resId;
 //        notifyPropertyChanged(jp.eno314.databindingdemo.BR.lastName);
+        notifyPropertyChanged(BR.resId);
     }
 }

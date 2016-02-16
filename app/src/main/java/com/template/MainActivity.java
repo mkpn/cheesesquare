@@ -33,7 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.template.databinding.ActivityMainBinding;
-import com.template.view.fragment.CheeseListFragment;
+import com.template.view.fragment.MutableListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new CheeseListFragment(), "Category 1");
-        adapter.addFragment(new CheeseListFragment(), "Category 2");
-        adapter.addFragment(new CheeseListFragment(), "Category 3");
+        adapter.addFragment(new MutableListFragment(), "Category 1");
+        adapter.addFragment(new MutableListFragment(), "Category 2");
+        adapter.addFragment(new MutableListFragment(), "Category 3");
         viewPager.setAdapter(adapter);
     }
 
