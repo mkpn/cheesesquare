@@ -23,26 +23,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
 import com.bumptech.glide.Glide;
-import com.template.databinding.ActivityDetailBinding;
+import com.template.databinding.ItemDetailActivityBinding;
 import com.template.model.Cheeses;
+import com.template.view.viewmodel.ItemDetailViewModel;
 
-public class ContentDetailActivity extends AppCompatActivity {
+public class ItemDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "cheese_name";
-    private ActivityDetailBinding mBinding;
+    private ItemDetailActivityBinding mBinding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
-        Intent intent = getIntent();
-        final String cheeseName = intent.getStringExtra(EXTRA_NAME);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.item_detail_activity);
 
         setSupportActionBar(mBinding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mBinding.collapsingToolbar.setTitle(cheeseName);
+        mBinding.collapsingToolbar.setTitle("詳細ページ");
 
+        mBinding.setViewModel(new ItemDetailViewModel());
         loadBackdrop();
     }
 

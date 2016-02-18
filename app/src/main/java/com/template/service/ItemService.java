@@ -1,7 +1,8 @@
-package com.template.io;
+package com.template.service;
 
 import com.template.R;
 import com.template.model.Cheese;
+import com.template.model.Item;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,9 +10,10 @@ import java.util.Random;
 /**
  * Created by makoto on 2015/11/27.
  */
-public class CheesesListHandler {
+public class ItemService {
 
     private ArrayList<Object> mCheeseList;
+    private Item mItem;
 
     public static int getRandomCheeseDrawable() {
         switch (RANDOM.nextInt(5)) {
@@ -31,7 +33,15 @@ public class CheesesListHandler {
 
     private static final Random RANDOM = new Random();
 
-    public static final String[] sCheeseStrings = {
+    public void getItem(){
+        mItem = new Item(mStrings[RANDOM.nextInt(mStrings.length)], mStrings[RANDOM.nextInt(mStrings.length)]) ;
+    }
+
+    public String getDescription(){
+        return "Hello World";
+    }
+
+    private static String[] mStrings = {
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
             "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale",
             "Aisy Cendre", "Allgauer Emmentaler", "Alverca", "Ambert", "American Cheese",
@@ -164,12 +174,12 @@ public class CheesesListHandler {
             "Zamorano", "Zanetti Grana Padano", "Zanetti Parmigiano Reggiano"
     };
 
-    public CheesesListHandler() {
+    public ItemService() {
     }
 
     public void loadCheeseList(){
         mCheeseList = new ArrayList<>();
-        for (String sCheeseString : sCheeseStrings) {
+        for (String sCheeseString : mStrings) {
             mCheeseList.add(new Cheese(sCheeseString, getRandomCheeseDrawable()));
         }
     }
